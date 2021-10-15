@@ -1,0 +1,130 @@
+<div class="naver p-3">
+  <h2 class="text-center">Employee List</h2>
+</div>
+<div class="container">
+  <div class="add mt-4">
+    <button
+      class="btn btn-success"
+      type="button"
+      data-toggle="modal"
+      data-target="#exampleModal"
+    >
+      Add New
+    </button>
+  </div>
+
+  <table class="table mt-3">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Job Position</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of employeeList">
+        <td scope="row">{{ list.name }}</td>
+        <td>{{ list.email }}</td>
+        <td>{{ list.job }}</td>
+        <td>{{ list.salary }}</td>
+        <td>
+          <button
+            type="button"
+            data-toggle="modal"
+            data-target="#exampleModal"
+            class="btn btn-info"
+            (click)="editUser(list)"
+          >
+            Edit</button
+          ><button class="btn btn-danger ml-2" (click)="deleteUser(list)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="myForm">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            formControlName="name"
+          />
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            formControlName="email"
+          />
+          <label for="id">Job Postion</label>
+          <input
+            type="text"
+            name="job"
+            id="job"
+            class="form-control"
+            formControlName="job"
+          />
+          <label for="salary">Salary</label>
+          <input
+            type="text"
+            name="salary"
+            id="salary"
+            class="form-control"
+            formControlName="salary"
+          />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="cancle"
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="updateTheEmployee()"
+        >
+          Update
+        </button>
+        <button type="button" class="btn btn-primary" (click)="postEmployee()">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

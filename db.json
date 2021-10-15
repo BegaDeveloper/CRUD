@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "id": 5,
+      "name": "Edin Ahmic",
+      "email": "ahma@outlook.com",
+      "job": "Python Dev",
+      "salary": "150000"
+    },
+    {
+      "id": 6,
+      "name": "Majda Begic",
+      "email": "Ovaj Enes",
+      "job": "Tech Lead",
+      "salary": "200000"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
